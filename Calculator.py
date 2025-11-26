@@ -26,22 +26,22 @@ def sub(a, b):
 def multiply(a, b):
     return a * b
 
-def division(a, b):
+def division():
+    a = int(input("Enter number to divide: "))
+    b = int(input("Enter number to divide by: "))
+
     if b == 0:
         return ValueError("You cannot divide by zero!")
     else:
         return (a / b)
 
 def sin(a):
-    a = int(input("Enter number: "))
     return math.sin(a)
 
 def cos(a):
-    a = int(input("Enter number: "))
     return math.cos(a)
 
 def tan(s):
-    a = int(input("Enter number: "))
     return math.tan(s)
 
 
@@ -81,20 +81,15 @@ choice_dict = {
 }
 
 if choice in choice_dict.keys():
-    if choice in [1, 2, 3, 4, 5, 6]:
-       a = int(input('Enter first number: '))
-       b = int(input('Enter second number: '))
-
-       try:
+   if choice in [1, 2, 3, 4, 5, 6]:
+       if choice == 4:
+           ans = division()
+       else:
+           a = int(input('Enter first number: '))
+           b = int(input('Enter second number: '))
            ans = choice_dict[choice](a, b)
-       except ValueError:
-           if choice == 4:
-               print("You cannot divide by 0!")
-            
-
-
-    elif choice in [7, 8, 9, 10]:
+   elif choice in [7, 8, 9, 10]:
        a = int(input("Enter input: ")) 
        ans = choice_dict[choice](a)
 
-print(f"Answer = {ans}")
+   print(f"Answer = {ans}")
