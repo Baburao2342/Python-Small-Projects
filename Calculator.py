@@ -33,15 +33,12 @@ def division(a, b):
         return (a / b)
 
 def sin(a):
-    a = int(input("Enter number: "))
     return math.sin(a)
 
 def cos(a):
-    a = int(input("Enter number: "))
     return math.cos(a)
 
 def tan(s):
-    a = int(input("Enter number: "))
     return math.tan(s)
 
 
