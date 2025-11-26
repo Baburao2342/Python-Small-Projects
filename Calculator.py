@@ -97,4 +97,5 @@ if choice in choice_dict.keys():
    elif choice in [7, 8, 9, 10]:
        a = int(input("Enter input: ")) 
        ans = choice_dict[choice](a)
+       print(f"Answer = {ans}")
 
