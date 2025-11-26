@@ -31,7 +31,7 @@ def division():
     b = int(input("Enter number to divide by: "))
 
     if b == 0:
-        return ValueError("You cannot divide by zero!")
+        raise ValueError("You cannot divide by zero!")
     else:
         return (a / b)
 
@@ -83,13 +83,18 @@ choice_dict = {
 if choice in choice_dict.keys():
    if choice in [1, 2, 3, 4, 5, 6]:
        if choice == 4:
-           ans = division()
+           try:
+               ans = division()
+               print(f"Answer = {ans}")
+           except ValueError as e:
+               print(f"Error: {e}")
+               
        else:
            a = int(input('Enter first number: '))
            b = int(input('Enter second number: '))
            ans = choice_dict[choice](a, b)
+           print(f"Answer = {ans}")
    elif choice in [7, 8, 9, 10]:
        a = int(input("Enter input: ")) 
        ans = choice_dict[choice](a)
 
-   print(f"Answer = {ans}")
