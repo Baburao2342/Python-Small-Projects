@@ -81,12 +81,20 @@ choice_dict = {
 }
 
 if choice in choice_dict.keys():
-   if choice in [1, 2, 3, 4, 5, 6]:
+    if choice in [1, 2, 3, 4, 5, 6]:
        a = int(input('Enter first number: '))
        b = int(input('Enter second number: '))
-       ans = choice_dict[choice](a, b)
-   elif choice in [7, 8, 9, 10]:
+
+       try:
+           ans = choice_dict[choice](a, b)
+       except ValueError:
+           if choice == 4:
+               print("You cannot divide by 0!")
+            
+
+
+    elif choice in [7, 8, 9, 10]:
        a = int(input("Enter input: ")) 
        ans = choice_dict[choice](a)
 
-   print(f"Answer = {ans}")
+print(f"Answer = {ans}")
