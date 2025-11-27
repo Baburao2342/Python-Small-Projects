@@ -6,10 +6,8 @@ response = requests.get(url)
 if response.status_code == 200:
     data = response.json()
 
-print('''
-
+print(''':
 ISS LIVE POSITION!
-
 ''')
 
 print(f"Latitude: {data['iss_position']['latitude']}")
