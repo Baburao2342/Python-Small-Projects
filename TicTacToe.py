@@ -69,9 +69,21 @@ while result == 2:
                 result = 0
                 break
 
-    for point in range(3):
-        diagonal_left = [row[point] for row in box]
-        diagonal_right = [row[2-point] for row in box]
+    diagonal_left = [box[i][i] for i in range(3)]
+    diagonal_right = [box[i][2-i] for i in range(3)]
+
+    if diagonal_left[0] != ' ' and all([cell == diagonal_left[0] for cell in diagonal_left]):
+        if diagonal_left[0] == '*':
+            result = 1
+            break
+        else:
+            result = 2
+    if diagonal_right[0] != ' ' and all([cell == diagonal_right[0] for cell in diagonal_right]):
+        if diagonal_right[0] == '*':
+            result = 1
+            break
+        else:
+            result = 2
     
     if diagonal_left[0] != " " and all(cell == diagonal_left[0] for cell in diagonal_left):
         if diagonal_left[0] == '*':
