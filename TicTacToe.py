@@ -6,7 +6,7 @@ box = [
     [' ', ' ', ' '],
 ]
 
-result = 2
+result = 4
 inputs = []
 
 
@@ -18,35 +18,74 @@ print('''
 ''')
 
 
+# Choose symbol
+symbol = input("What would you like to play as (* / o): ")
+if symbol == '*':
+    compSymbol = 'o'
+else:
+    compSymbol = '*'
+
+def emptyCellCheck():
+    
+    flag = True
+    
+    for row in box:
+        for cell in row:
+            if cell == ' ':
+                flag = False
+                break
+    
+    if flag == False:
+        return False
+    else:
+        return True
+
+def usrCoords():
+
+    if not emptyCellCheck():
+
+        coords = input("Enter the coords of your mark! (row, column) (1-3): ")
+        parts = coords.split(',')
+        input_row = int(parts[0]) - 1
+        input_column = int(parts[1]) - 1
+        inputs.append((input_row, input_column))
+
+        if box[input_row][input_column] not in ['*', 'o']:
+            box[input_row][input_column] = symbol
+    
+def compCoords():
+
+    if not emptyCellCheck():
+
+        valid = False
+
+        while not valid:
+            comp_row = random.randint(0, 2)
+            comp_column = random.randint(0, 2)
+
+            if box[comp_row][comp_column] not in ['*', 'o']:
+                box[comp_row][comp_column] = compSymbol
+                valid = True
+                break
+            else:
+                valid = False
 
 # Game Logic
 
-while result == 2:
+while result == 4:
 
     for row in box:
         print(row, end='\n')
-
-    coords = input("Enter the coords of your mark! (row, column) (1-3): ")
-    parts = coords.split(',')
-    input_row = int(parts[0]) - 1
-    input_column = int(parts[1]) - 1
-    inputs.append((input_row, input_column))
-
-    if box[input_row][input_column] not in ['*', 'o']:
-        box[input_row][input_column] = '*'
     
-    valid = False
-
-    while not valid:
-        comp_row = random.randint(0, 2)
-        comp_column = random.randint(0, 2)
-
-        if box[comp_row][comp_column] not in ['*', 'o']:
-            box[comp_row][comp_column] = 'o'
-            valid = True
-            break
-        else:
-            valid = False
+    if symbol == '*':
+        usrCoords()
+        compCoords()
+    elif symbol == 'o':
+        compCoords()
+        usrCoords()
+    else:
+        print('Invalid symbol')
+        break
 
     for row in box:
         if row[0] != " " and all(cell == row[0] for cell in row):
@@ -100,7 +139,10 @@ while result == 2:
         else:
             result = 0
             break
-
+    
+    if emptyCellCheck():
+        if result not in [0, 1]:
+            result = 3
     
 
 for row in box:
