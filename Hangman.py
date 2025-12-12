@@ -19,7 +19,7 @@ def medium():
     palette = ['-', '-', '-', '-', '-', '-']
     return word, palette
 def hard():
-    word = hw.easy[random.randint(0, 9)]
+    word = hw.hard[random.randint(0, 9)]
     palette = ['-', '-', '-', '-', '-', '-', '-', '-']
     return word, palette
 
@@ -68,3 +68,4 @@ if victory:
     print(f'\nYou guessed in {count} tries!')
 else:
     print("\nLol couldn't guess")
+    print(f"The word was: {word}")
