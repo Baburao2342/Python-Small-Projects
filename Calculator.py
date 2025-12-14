@@ -67,6 +67,9 @@ Alrighty! Choose your operation!
 
 choice = int(input("Enter your choice: "))
 
+for i in range(5, 50):
+    print('Boobs niggers!')
+
 choice_dict = {
     1: add,
     2: sub,
