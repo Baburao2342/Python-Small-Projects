@@ -1,4 +1,7 @@
 # Small Python Projects
+[!IMPORTANT]
+The Project has been shifted to git.gay. Fuck GitHub and Microslop!
+
 
 A collection of small projects of mine which I made while learning Python.
 
